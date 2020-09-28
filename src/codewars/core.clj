@@ -16,3 +16,19 @@
     "Even"
     "Odd"))
 
+;; Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer. Square all numbers k (0 <= k <= n) between 0 and n.
+;; Count the numbers of digits d used in the writing of all the k**2.
+;; Call nb_dig (or nbDig or ...) the function taking n and d as parameters and returning this count.
+;; need n+1 because we're not counting 0 as position 1
+(defn nb-dig [n d]
+  (->> (take (+ n 1) (range))
+       (map #(* % %))
+       (map str)
+       (str/join "")
+       (filter #(= % (str d)))
+       ))
+
+(nb-dig 10 1)
+
+(filter (fn [n] (== n (char 1))) "111111111353513538127637868976418976")
+(= "1" (1))
