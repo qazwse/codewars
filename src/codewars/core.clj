@@ -7,3 +7,12 @@
 ;; Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 (defn jaden-case [s]
   (str/join " " (map str/capitalize (str/split s #" "))))
+
+;; Even or Odd
+;; Retuns even if even, odd if odd
+;; ... Kinda lame...
+(defn even-or-odd [n]
+  (if (even? n)
+    "Even"
+    "Odd"))
+
