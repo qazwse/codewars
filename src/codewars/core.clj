@@ -37,3 +37,25 @@
         (mapcat #(str (* % %)))
         frequencies)
    (first (str d))))
+
+;; You are given an array of string inputs strarr and an integer k.
+;; Your task is to return the longest possible string that can be derived by combining k consecutive elements of the input strarr.
+
+(def tst ["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"])
+
+(defn get-sums [strarr k]
+  (cond (== k 1)
+        (map count strarr)
+        :else
+        (map #(reduce + %) (partition k 1 (map count strarr)))))
+
+(defn longest-cons [strarr k]
+  (cond
+    (>= 0 k) ""
+    (empty? strarr) ""
+    :else
+    (let [sums (get-sums strarr k)
+          part (partition k 1 strarr)
+          t (map conj part sums)]
+      (println sums part t)
+      (clojure.string/join (rest (first (sort-by first > t)))))))
