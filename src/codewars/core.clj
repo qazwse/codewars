@@ -31,3 +31,9 @@
        (re-find)
        (count)))
 
+;; Better way! Had the right idea, but I didn't know about the frequencies function
+(defn nb-dig-better [n d]
+  ((->> (range (inc n))
+        (mapcat #(str (* % %)))
+        frequencies)
+   (first (str d))))
