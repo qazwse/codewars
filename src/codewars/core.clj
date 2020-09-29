@@ -25,10 +25,9 @@
        (map #(* % %))
        (map str)
        (str/join "")
-       (filter #(= % (str d)))
-       ))
+       (sort)
+       (str/join "")
+       (re-matcher (re-pattern (str (str d) "+")))
+       (re-find)
+       (count)))
 
-(nb-dig 10 1)
-
-(filter (fn [n] (== n (char 1))) "111111111353513538127637868976418976")
-(= "1" (1))
