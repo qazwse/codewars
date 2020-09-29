@@ -59,3 +59,11 @@
           t (map conj part sums)]
       (println sums part t)
       (clojure.string/join (rest (first (sort-by first > t)))))))
+
+;; Again there's a better way :(
+;; I shouldn't be sad, I'm still learning. And I had the right idea,
+;; just thought about counting too early!
+
+(defn longest-cons-better [strarr k]
+  (reduce #(if (> (count %2) (count %1)) %2 %1) ""
+   (map #(apply str %) (partition k 1 strarr))))
