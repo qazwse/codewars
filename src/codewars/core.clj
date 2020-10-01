@@ -67,3 +67,13 @@
 (defn longest-cons-better [strarr k]
   (reduce #(if (> (count %2) (count %1)) %2 %1) ""
    (map #(apply str %) (partition k 1 strarr))))
+
+;; Return century given year
+
+(defn century [year]
+  (-> year
+      (/ 100)
+      (java.lang.Math/ceil)
+      (int)))
+
+(century 1705)
